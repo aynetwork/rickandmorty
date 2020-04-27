@@ -1,0 +1,20 @@
+.LaunchList__item {
+    margin: 20px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.LaunchList__item:hover {
+    opacity: 0.6;
+}
+
+.LaunchList__close {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.LaunchList__close:hover {
+    background: black;
+    color: white;
+}
