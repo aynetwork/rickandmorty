@@ -7,9 +7,8 @@
     -khtml-border-radius: 3px;
     background: #ffffff !important;
     outline: none;
+    padding-left: 5px;
     height: 24px;
-    color: #cccccc;
-    font-size: 11px;
     font-family: Tahoma;
 
 }

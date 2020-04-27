@@ -26,7 +26,6 @@ const List: React.FC<OwnProps> = ({ data, onRemove, banned, handleClickRickMorty
                               <i className={`material-icons ${className}__close`}
                                  onClick={() => onRemove(Number(character.id))}>clear</i>
                              <img className={` materialboxed`} onClick={() => handleClickRickMorty(Number(character.id))} width={"150px"} src={character.image!} alt=""/>
-                             <div>{character.name}</div>
                         </span>
                     ),
             )}
