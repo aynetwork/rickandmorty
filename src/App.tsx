@@ -26,7 +26,7 @@ function App() {
   const searchQuery = (newSearch:string)=>{
       throttle = window.setTimeout(function () {
           setSearch(newSearch);
-          searchTimeoutFlag = true;
+          searchTimeoutFlag = false;
       }, 300);
   };
 
