@@ -1,31 +1,12 @@
 import * as React from 'react';
-import { useCharactersListQuery } from '../../generated/graphql';
-import List
-    // , { OwnProps }
-    from './List';
+
 
 interface OwnProps {
-    search: string;
+    handleSearchParent: (search: string) => void;
 }
 
-const ListContainer = ({search}: OwnProps) => {
-    const { data, error, loading, refetch } = useCharactersListQuery({
-        variables: {name: String(search)}
-    });
-
-    React.useEffect(() => {
-        refetch();
-    }, [search]);
-
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
-    if (error || !data) {
-        return <div>ERROR</div>;
-    }
-
-    return <List data={data}  />;
+const Search:React.FC<OwnProps> = ({handleSearchParent}: OwnProps) => {
+    return <input type={"text"} className={"Search"} onChange={e => handleSearchParent(e.target.value)}  />;
 };
 
-export default ListContainer;
+export default Search;

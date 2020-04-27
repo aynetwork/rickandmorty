@@ -1,38 +1,38 @@
 import * as React from 'react';
-import { LaunchListQuery } from '../../generated/graphql';
+import {Character} from '../../generated/graphql';
 import './styles.css';
+import Maybe from "graphql/tsutils/Maybe";
 
 
 
 export interface OwnProps {
-    handleIdChange: (newId: number) => void;
-}
-
-interface Props extends OwnProps {
-    data: LaunchListQuery;
+    data: Maybe<Character>[]
+    onRemove: (id: number) => void
+    banned: object
+    handleClickRickMorty: (id: number) => void
 }
 
 const className = 'LaunchList';
 
-const LaunchList: React.FC<Props> = ({ data, handleIdChange }) => (
-    <div className={className}>
-        <h3>Launches</h3>
-        <ol className={`${className}__list`}>
-            {!!data.launches &&
-            data.launches.map(
-                (launch, i) =>
-                    !!launch && (
-                        <li
-                            key={i}
-                            className={`${className}__item`}
-                            onClick={() => handleIdChange(launch.flight_number!)}
-                        >
-                            {launch.mission_name} ({launch.launch_year})
-                        </li>
+const List: React.FC<OwnProps> = ({ data, onRemove, banned, handleClickRickMorty }) => {
+    return (<div className={className}>
+        <span className={`${className}__list`}>
+            {!!data &&
+            data.map(
+                (character, i) =>
+                    !!character && (
+                        <span
+                            key={i} className={`${className}__item`}>
+                              <i className={`material-icons ${className}__close`}
+                                 onClick={() => onRemove(Number(character.id))}>clear</i>
+                             <img className={` materialboxed`} onClick={() => handleClickRickMorty(Number(character.id))} width={"150px"} src={character.image!} alt=""/>
+                             <div>{character.name}</div>
+                        </span>
                     ),
             )}
-        </ol>
-    </div>
-);
+        </span>
+    </div>)
+};
 
-export default LaunchList;
+export default List;
+

@@ -1,20 +1,25 @@
-.LaunchList__item {
+
+.CardList__container {
+    display: flex;           /* establish flex container */
+    flex-direction: row;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center;
+}
+
+
+.CardList__item {
+    width: 100px;
+    height: 100px;
     margin: 20px;
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-}
-
-.LaunchList__item:hover {
-    opacity: 0.6;
-}
-
-.LaunchList__close {
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-.LaunchList__close:hover {
-    background: black;
+    background: gray;
     color: white;
+    display: flex;           /* establish flex container */
+    flex-direction: column;  /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center;
+}
+
+.CardList__image {
+   width: 100px;
+    height: 100px;
 }

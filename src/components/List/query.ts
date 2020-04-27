@@ -1,11 +1,17 @@
 import gql from 'graphql-tag';
 
-export const QUERY_LAUNCH_LIST = gql`
-  query LaunchList {
-    launches {
-      flight_number
-      mission_name
-      launch_year
-    }
+export const QUERY_LIST = gql`
+   query charactersList($name: String) {
+        characters(page: 1, filter: { name: $name }) {
+            info {
+                count
+            }
+            results {
+                id
+                name
+                image
+            }
+        }
   }
 `;
+

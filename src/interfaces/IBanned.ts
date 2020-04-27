@@ -1,3 +1,3 @@
 export interface IBanned {
-    id: number
+    [key: string]: any
 }
